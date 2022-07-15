@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+    <style>
+        body{
+            background-color: bisque;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .container{
+            border: 2px solid black;
+            background-color: skyblue;
+            position: relative;
+            height: 400px;
+            width: 350px;
+            border-radius: 0.6em;
+            top: 100px;
+            padding: 23px;
+
+        }
+        
+        td{
+            width: 30%;
+            height: 60px;
+            /* border: 2px solid black; */
+            text-align: center;
+            
+        }
+        .input{
+            width: 95%;
+            border-radius: 0.4em;
+        }
+        #value{
+            width: 75%;
+            height: 35px;
+            border: 2px solid black;
+            border-radius: 0.4em;
+            background-color: rgb(248, 154, 120);
+        }
+
+        #value:hover{
+            background-color: wheat;
+        }
+
+        button{
+            border-radius: 0.4em;
+            background-color: red;
+            width: 60px;
+        }
+        button:hover{
+            background-color: wheat;
+        }
+       
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <center><h4>Calculator</h4></center>
+        
+        <table>
+            <tr>
+                <td colspan="3"><input type="text" class="input" id="result"></td>
+                <td><button id="clear" onclick="clearScreen()">Clear</button></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="value" value="1" onclick="display('1')"></td>
+                <td><input type="button" id="value" value="2" onclick="display('2')"></td>
+                <td><input type="button" id="value" value="3" onclick="display('3')"></td>
+                <td><input type="button" id="value" value="/" onclick="display('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="value" value="4" onclick="display('4')"></td>
+                <td><input type="button" id="value" value="5" onclick="display('5')"></td>
+                <td><input type="button" id="value" value="6" onclick="display('6')"></td>
+                <td><input type="button" id="value" value="-" onclick="display('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="value" value="7" onclick="display('7')"></td>
+                <td><input type="button" id="value" value="8" onclick="display('8')"></td>
+                <td><input type="button" id="value" value="9" onclick="display('9')"></td>
+                <td><input type="button" id="value" value="+" onclick="display('+')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" id="value" value="." onclick="display('.')"></td>
+                <td><input type="button" id="value" value="0" onclick="display('0')"></td>
+                <td><input type="button" id="value" value="=" onclick="calculate()"></td>
+                <td><input type="button" id="value" value="*" onclick="display('*')"></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <script>
+        function clearScreen(){
+            document.getElementById("result").value =" ";
+        }
+
+        function display(value)
+        {
+            document.getElementById("result").value += value;
+        }
+
+        function calculate()
+        {
+            var p = document.getElementById("result").value;
+            var res = eval(p);
+            document.getElementById("result").value = res;
+        }
+
+    </script>
+</body>
+</html>
